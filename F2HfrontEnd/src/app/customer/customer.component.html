@@ -1,0 +1,42 @@
+
+<table>
+    <tr>
+        <th>Customer ID</th>
+        <th>Customer Forename</th>
+        <th>Customer Surname</th>
+        <th>Customer Address</th>
+        <th>D.O.B</th>
+        <th>Customer Email</th>
+        <th>Customer Username</th>
+        <th>Customer Password</th>
+    </tr>
+    <tr *ngFor="let c of customer; let i = index">
+        <td>{{c.customerID}}</td>
+        <td>{{c.customerForename}}</td>
+        <td>{{c.customerSurname}}</td>
+        <td>{{c.customerAddress}}</td>
+        <td>{{c.customerDOB}}</td>
+        <td>{{c.customerEmail}}</td>
+        <td>{{c.customerUsername}}</td>
+        <td>{{c.customerPassword}}</td>
+        <!--<td><button (click)="deleteCustomer(c.customerID)">x</button></td>-->
+    </tr>
+</table>
+<form (submit)="createCustomer({customerID:0,customerForename:customerForename.value, 
+                customerSurname:customerSurname.value,
+                customerAddress:customerAddressaddress.value,
+                customerDOB:customerDOB.value,
+                customerEmail:customerEmail.value,
+                customerUsername:customerUsername.value,
+                customerPassword:customerPassword.value})"> 
+    <tr>
+        <td><input placeholder="Forename" #customerForename></td>
+        <td><input placeholder="Surename" #customerSurname></td>
+        <td><input placeholder="Address" #customerAddress></td>
+        <td><input placeholder="D.O.B" #customerDOB></td>
+        <td><input placeholder="Email" #customerEmail></td>
+        <td><input placeholder="Username" #customerUsername></td>
+        <td><input placeholder="Password" #customerPassword></td>
+        <td><input type="submit" value="Create"></td>
+    </tr>
+</form>
