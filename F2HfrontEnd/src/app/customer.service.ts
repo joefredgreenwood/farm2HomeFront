@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { newArray } from '@angular/compiler/src/util';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +21,13 @@ export class CustomerService {
     return this.httpsvc.get<Customer[]>(this.rootURL+"/list")
   }
 
-  createCustomer(newCustomer:Customer):Observable<Customer>{
-    const httpOpts ={
-      headers:new HttpHeaders(
-        {'Content-Type':
-      'application/x-www-form-urlencoded;charset=UTF-8'}
-      )
-    }
+  findCustomerByID(customerID:number):Observable<Customer>{
+    return this.httpsvc.get<Customer>(this.rootURL+"/find/"+customerID)
+  }
 
-    var reqBody= "customerForename="+newCustomer.customerForename+
+  createCustomer(newCustomer:Customer):Observable<Customer>{
+  
+    var contentData= "customerForename="+newCustomer.customerForename+
                 "&customerSurname="+newCustomer.customerSurname+
                 "&customerAddress="+newCustomer.customerAddress+
                 "&customerDOB="+newCustomer.customerDOB+
@@ -35,9 +35,17 @@ export class CustomerService {
                 "&customerUsername="+newCustomer.customerUsername+
                 "&customerPassword="+newCustomer.customerPassword
     
-    return this.httpsvc.post<Customer>(
-      this.rootURL+"/register", reqBody,httpOpts
-    )
-  }
+                const httpOptions= {
+                  headers: new HttpHeaders(
+                  {"Content-Type":"application/x-www-form-urlencoded"})
+                  }
+                  return this.httpsvc.post<Customer>(
+                  this.rootURL+"/register/", //url
+                  contentData, //data for the server
+                  httpOptions) //header options
+                  
+                  }
+    
+  
 
 }

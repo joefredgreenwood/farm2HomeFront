@@ -10,7 +10,7 @@
         <th>Customer Username</th>
         <th>Customer Password</th>
     </tr>
-    <tr *ngFor="let c of customer; let i = index">
+    <tr *ngFor="let c of customer">
         <td>{{c.customerID}}</td>
         <td>{{c.customerForename}}</td>
         <td>{{c.customerSurname}}</td>
@@ -19,24 +19,28 @@
         <td>{{c.customerEmail}}</td>
         <td>{{c.customerUsername}}</td>
         <td>{{c.customerPassword}}</td>
-        <!--<td><button (click)="deleteCustomer(c.customerID)">x</button></td>-->
+        <!-- <td><button (click)="deleteCustomer(c.customerID)">x</button></td> -->
     </tr>
+    
 </table>
-<form (submit)="createCustomer({customerID:0,customerForename:customerForename.value, 
-                customerSurname:customerSurname.value,
-                customerAddress:customerAddressaddress.value,
-                customerDOB:customerDOB.value,
-                customerEmail:customerEmail.value,
-                customerUsername:customerUsername.value,
-                customerPassword:customerPassword.value})"> 
+<form (submit)="createCustomer({customerID:0,
+                customerForename:acustomerForename.value, 
+                customerSurname:acustomerSurname.value,
+                customerAddress:acustomerAddress.value,
+                customerDOB:acustomerDOB.value,
+                customerEmail:acustomerEmail.value,
+                customerUsername:acustomerUsername.value,
+                customerPassword:acustomerPassword.value})"> 
+    <table>
     <tr>
-        <td><input placeholder="Forename" #customerForename></td>
-        <td><input placeholder="Surename" #customerSurname></td>
-        <td><input placeholder="Address" #customerAddress></td>
-        <td><input placeholder="D.O.B" #customerDOB></td>
-        <td><input placeholder="Email" #customerEmail></td>
-        <td><input placeholder="Username" #customerUsername></td>
-        <td><input placeholder="Password" #customerPassword></td>
+        <td><input placeholder="Forename" name="customerForename" #acustomerForename></td>
+        <td><input placeholder="Surname" name="customerSurname" #acustomerSurname></td>
+        <td><input placeholder="Address" name="customerAddress" #acustomerAddress></td>
+        <td><input placeholder="D.O.B" name="customerDOB" #acustomerDOB></td>
+        <td><input placeholder="Email" name="customerEmail" #acustomerEmail></td>
+        <td><input placeholder="Username" name="customerUsername" #acustomerUsername></td>
+        <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
         <td><input type="submit" value="Create"></td>
-    </tr>
+     </tr>
+    </table>
 </form>
