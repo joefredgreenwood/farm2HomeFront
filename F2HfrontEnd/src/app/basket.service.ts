@@ -23,17 +23,15 @@ export class BasketService {
     return this.httpsvc.get<Basket>(this.rootURL+"/find/"+basketID)
   }
 
-  createBasket
-  (newBasket:Basket):Observable<Basket>{
+  createBasket(newBasket:Basket):Observable<Basket>{
 
-    var contentData=
-    "basketValue="+newBasket.basketValue
+    var contentData="basketValue="+newBasket.basketValue
     
-    const httpOptions= {
-      headers: new HttpHeaders(
+      const httpOptions= {
+        headers: new HttpHeaders(
         {"Content-Type":"application/x-www-form-urlencoded"})
       }
-      return this.httpsvc.post<Basket>(
+        return this.httpsvc.post<Basket>(
         this.rootURL+"/register/", //url
         contentData, //data for the server
         httpOptions) //header options
