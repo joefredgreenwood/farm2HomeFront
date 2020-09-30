@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { HomeComponent } from './home/home.component';
+import { CustomerLogInComponent } from './customer-log-in/customer-log-in.component';
 import { FarmComponent } from './farm/farm.component';
 
 
@@ -10,7 +11,8 @@ const routes: Routes = [
 
   {path:'home',component:HomeComponent},
   {path:'customer', component:CustomerComponent},
-  {path:'farm', component:FarmComponent}
+  {path:'customer-log-in', component:CustomerLogInComponent},
+  {path:'farm', component:FarmComponent},
   // {path:'',redirectTo:'/home', pathMatch: 'full' }
 ];
 
