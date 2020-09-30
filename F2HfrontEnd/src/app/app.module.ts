@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     CustomerComponent,
     FarmComponent,
     BasketComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

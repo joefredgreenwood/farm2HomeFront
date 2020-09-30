@@ -1,1 +1,22 @@
-<p>basket works!</p>
+<table>
+    <tr>
+        <th>Basket ID</th>
+        <th>Basket Value</th>
+    </tr>
+    <tr *ngFor="let b of basket">
+        <td>{{b.basketID}}</td>
+        <td>{{b.basketValue}}</td>
+    </tr>
+    
+</table>
+<form (submit)="createBasket({basketID:0,
+                basketID:abasketID.value, 
+                basketValue:abasketValue.value"> 
+    <table>
+    <tr>
+        <td><input placeholder="BasketID" name="basketID" #abasketID></td>
+        <td><input placeholder="BasketValue" name="basketValue" #abasketValue></td>
+        <td><input type="submit" value="Create"></td>
+     </tr>
+    </table>
+</form>
