@@ -1,0 +1,45 @@
+<h1>LOGIN PAGE</h1>
+<form>
+    <table>
+        <tr [hidden]="isApplicantValid">
+            <td colspan="3">
+                {{serverIssue}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Retrieve your personal details:
+            </th>
+            <td *ngIf="!isCustomerEditing">
+                {{customer.customerUsername}}
+            </td>
+            <td *ngIf="isCustomerEditing">
+                <input name="customerUsername" [(ngModel)]="customer.customerUsername">
+            </td>
+            <!-- <td *ngIf="!isCustomerEditing">
+                {{customer.customerPassword}}
+            </td> -->
+            <td *ngIf="isCustomerEditing">
+                <input name="customerPassword" [(ngModel)]="customer.customerPassword">
+            </td>
+            <td>
+                <button (click)="toggleIsCustomerEditingForm()">
+                    {{((!isCustomerEditing)?"Login":"Login")}}
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div *ngIf="hasCustomerData">
+        <table>
+            <tr>
+                <td>
+                    Name
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{customer.customerForename}}
+                </td>
+            </tr>
+        </table>
+    </div>
