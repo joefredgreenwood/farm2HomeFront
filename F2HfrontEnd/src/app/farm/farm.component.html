@@ -1,1 +1,60 @@
-<p>farm works!</p>
+<h2>Welcome to the Farm Homepage</h2>
+<hr>
+
+<div class="grid-container">
+    <!--SIGN UP START-->
+    <div class="grid-item">
+        <h3>Sign Up
+        <button (click)="toggle()" id="bt">
+            {{farmSignUp}}
+        </button>
+        </h3>
+    
+        <ng-container *ngIf="show">
+        
+            <table>
+                <tr>
+                    <th class="short">Farm Name</th>
+                    <th class="short">Farm Location</th>
+                    <th class="short">Farm Type</th>
+                    <th class="long">Farm Username</th>
+                    <th class="long">Farm Password</th>
+                </tr>
+                <tr *ngFor="let f of farm">
+                    <td>{{f.farmID}}</td>
+                    <td>{{f.farmName}}</td>
+                    <td>{{f.farmLocation}}</td>
+                    <td>{{f.farmType}}</td>
+                    <td>{{f.farmUsername}}</td>
+                    <td>{{f.farmPassword}}</td>
+                </tr>
+            </table>
+
+            <form (submit)="createFarm({farmID:0,
+                            farmName:afarmName.value,
+                            farmLocation:afarmLocation.value,
+                            farmType:afarmType.value,
+                            farmUsername:afarmUsername.value,
+                            farmPassword:afarmPassword.value})">
+                <table>
+                    <tr>
+                        <td><input placeholder="Name" name="farmName" #afarmName></td>
+                        <td><input placeholder="Location" name="farmLocation" #afarmLocation></td>
+                        <td><input placeholder="Type" name="farmType" #afarmType></td>
+                        <td><input placeholder="Username" name="farmUsername" #afarmUsername></td>
+                        <td><input placeholder="Password" name="farmPassword" #afarmPassword></td>
+                        <td><input type="submit" value="Create"></td>
+                    </tr>
+                </table>
+            </form>
+        </ng-container>
+    </div>
+    <!--SIGN UP END-->
+
+    <!--LOGIN START-->
+    <div class="grid-item">
+        <h3>Or Login</h3>
+    </div>
+    <!--LOGIN END-->
+    
+</div>
