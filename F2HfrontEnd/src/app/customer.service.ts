@@ -25,6 +25,10 @@ export class CustomerService {
     return this.httpsvc.get<Customer>(this.rootURL+"/find/"+customerID)
   }
 
+findCustomerByUsername(customerUsername:string, customerPassword:string):Observable<Customer>{
+  return this.httpsvc.get<Customer>(this.rootURL+"/findu/"+customerUsername+"/"+customerPassword)
+}
+
   createCustomer(newCustomer:Customer):Observable<Customer>{
   
     var contentData= "customerForename="+newCustomer.customerForename+

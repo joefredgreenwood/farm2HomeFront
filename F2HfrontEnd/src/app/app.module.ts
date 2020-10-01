@@ -9,6 +9,8 @@ import { FarmComponent } from './farm/farm.component';
 import { BasketComponent } from './basket/basket.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerLogInComponent } from './customer-log-in/customer-log-in.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     FarmComponent,
     BasketComponent,
     HomeComponent,
+    CustomerLogInComponent,
+    CustomerProfileComponent
   ],
   imports: [
     BrowserModule,
