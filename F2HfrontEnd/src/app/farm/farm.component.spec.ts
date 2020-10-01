@@ -1,25 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import { FarmComponent } from './farm.component';
+import { FarmService } from './farm.service';
 
-describe('FarmComponent', () => {
-  let component: FarmComponent;
-  let fixture: ComponentFixture<FarmComponent>;
+describe('FarmService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FarmComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FarmComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    const service: FarmService = TestBed.get(FarmService);
+    expect(service).toBeTruthy();
   });
 });
