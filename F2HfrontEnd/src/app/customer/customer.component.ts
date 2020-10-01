@@ -11,12 +11,15 @@ export class CustomerComponent implements OnInit {
   // customer: Customer[]  
   currentCustomer:Customer
   serverMessage: string
-
+  createError:string
+  doesCreateWork:boolean
 //  constructor(private customerService:CustomerService) { 
 //     this.customer=[]
 //   }
 
   constructor(private customerService: CustomerService){
+    this.doesCreateWork = true
+    this.createError=""
     this.currentCustomer={
       customerID: 0,
       customerForename: "string",
@@ -33,8 +36,13 @@ export class CustomerComponent implements OnInit {
     this.customerService.createCustomer(newCustomer).subscribe(
       response=>{
          this.fetchCustomerFromServer()
-
-              }
+          this.createError=""
+          this.doesCreateWork = true
+              },
+      error=>{
+        this.doesCreateWork = false
+        this.createError = "This username already exists please choose another one"
+      }
     )
   }
 
