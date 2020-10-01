@@ -10,6 +10,9 @@
         <th>Customer Username</th>
         <th>Customer Password</th>
     </tr>
+    <tr [hidden]="doesCreateWork">
+        <td>{{createError}}</td>
+    </tr>
     <tr *ngFor="let c of customer">
         <td>{{c.customerID}}</td>
         <td>{{c.customerForename}}</td>

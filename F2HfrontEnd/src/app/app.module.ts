@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerLogInComponent } from './customer-log-in/customer-log-in.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
     BasketComponent,
     HomeComponent,
     CustomerLogInComponent,
-    CustomerProfileComponent
+    CustomerProfileComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
