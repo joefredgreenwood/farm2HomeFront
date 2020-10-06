@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomerLogInComponent } from './customer-log-in/customer-log-in.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ProductComponent } from './product/product.component';
+import { FarmLogInComponent } from './farm-log-in/farm-log-in.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductComponent } from './product/product.component';
     HomeComponent,
     CustomerLogInComponent,
     CustomerProfileComponent,
-    ProductComponent
+    ProductComponent,
+    FarmLogInComponent
   ],
   imports: [
     BrowserModule,

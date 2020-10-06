@@ -22,6 +22,10 @@ export class FarmService {
      return this.httpsvc.get<Farm>(this.rootURL+"/find/"+farmID)
    }
 
+   findFarmByUsername(farmUsername:string, farmPassword:string):Observable<Farm>{
+     return this.httpsvc.get<Farm>(this.rootURL+"/findu/"+farmUsername+"/"+farmPassword)
+   }
+
    createFarm(newFarm:Farm):Observable<Farm>{
 
     var contentData= "farmName="+newFarm.farmName+
