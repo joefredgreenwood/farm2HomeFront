@@ -1,3 +1,9 @@
+<div class="headerCustomer">
+    <h1>Welcome to our Sign up page </h1>
+    <p><b>Easily sign up in seconds </b></p>
+    <P> Please enter the details in below:</P>
+  </div>
+
 <form (submit)="createCustomer({customerID:0, 
     customerForename:acustomerForename.value, 
     customerSurname:acustomerSurname.value,
@@ -7,9 +13,6 @@
     customerUsername:acustomerUsername.value,
     customerPassword:acustomerPassword.value})"> 
 <table>
-    <tr>
-        <th>Customer ID</th>
-    </tr>
     <tr>
         <th>Customer Forename</th>
         <td><input placeholder="Forename" name="customerForename" #acustomerForename></td>
