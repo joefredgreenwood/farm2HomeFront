@@ -39,7 +39,13 @@
                 <table>
                     <tr>
                         <td><input placeholder="Name" name="farmName" #afarmName></td>
-                        <td><input placeholder="Location" name="farmLocation" #afarmLocation></td>
+                        <td>
+                            <select name="farmLocation" id=""#afarmLocation>
+                                <option value ="SCOTLAND">Scotland</option>
+                                <option value ="NORTHERN_IRELAND">Northern Ireland</option>
+                                <option value ="WALES">Wales</option>
+                                <option value ="YORKSHIRE_HUMBER">Yorkshire Humber</option>
+                         {{f.farmLocation}}   </select></td>
                         <td><input placeholder="Type" name="farmType" #afarmType></td>
                         <td><input placeholder="Username" name="farmUsername" #afarmUsername></td>
                         <td><input placeholder="Password" name="farmPassword" #afarmPassword></td>
