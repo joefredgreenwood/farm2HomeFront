@@ -26,7 +26,8 @@
     </tr>
     
 </table>
-<form (submit)="createCustomer({customerID:0,
+
+<form (submit)="createCustomer({customerID:0, 
                 customerForename:acustomerForename.value, 
                 customerSurname:acustomerSurname.value,
                 customerAddress:acustomerAddress.value,
@@ -35,6 +36,7 @@
                 customerUsername:acustomerUsername.value,
                 customerPassword:acustomerPassword.value})"> 
     <table>
+        <tbody>
     <tr>
         <td><input placeholder="Forename" name="customerForename" #acustomerForename></td>
         <td><input placeholder="Surname" name="customerSurname" #acustomerSurname></td>
@@ -45,5 +47,6 @@
         <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
         <td><input type="submit" value="Create"></td>
      </tr>
+    </tbody>
     </table>
 </form>
