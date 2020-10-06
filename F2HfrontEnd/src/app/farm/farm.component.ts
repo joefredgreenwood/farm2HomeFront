@@ -49,7 +49,7 @@ export class FarmComponent implements OnInit {
            farmLocation: "Test1",
            farmType: "Test2",
            farmUsername: "Test3",
-           farmPassword: "Test4",
+           farmPassword: "Test4"
          }
        }
      )

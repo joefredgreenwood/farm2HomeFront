@@ -1,0 +1,42 @@
+<h1> Farm Login</h1>
+<form>
+    <table>
+        <tr [hidden] = "isFarmValid">
+            <td colspan="3">
+                {{serverIssue}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Please enter your username and password to login to your account:
+            </th>
+            <td *ngIf="!isfarmEditing">
+                {{farm.farmUsername}}
+            </td>
+            <td *ngIf="isfarmEditing">
+                <input name="farmUsername" [(ngModel)]="farm.farmUsername">
+            </td>
+            <td *ngIf="isfarmEditing">
+                <input name="farmPassword" [(ngModel)]="farm.farmPassword">
+            </td>
+            <td>
+                <button (click)="toggleIsFarmEditingForm()">
+                    {{((!isfarmEditing)?"Login":"Login")}}
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div *ngIf="hasFarmData">
+        <table>
+            <tr>
+                <td>
+                    Name
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{farm.farmName}}
+                </td>
+            </tr>
+        </table>
+    </div>
