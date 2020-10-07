@@ -1,22 +1,45 @@
-<table>
-    <tr>
-        <th>Basket ID</th>
-        <th>Basket Value</th>
-    </tr>
-    <tr *ngFor="let b of basket">
-        <td>{{b.basketID}}</td>
-        <td>{{b.basketValue}}</td>
-    </tr>
-    
-</table>
-<form (submit)="createBasket({basketID:0,
+
+  
+  <br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+<body>
+
+    <form (submit)="createBasket({basketID:0,
                 basketID:abasketID.value, 
                 basketValue:abasketValue.value})"> 
-    <table>
-    <tr>
-        <td><input placeholder="BasketID" name="basketID" #abasketID></td>
-        <td><input placeholder="BasketValue" name="basketValue" #abasketValue></td>
-        <td><input type="submit" value="Create"></td>
-     </tr>
+
+    <table style="width: 10px;" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Basket ID</th>
+                <th>Basket Value</th>
+            </tr>
+            <tr>
+                <td><input placeholder="ID" name="basketID" #abasketID></td>
+                <td><input placeholder="Value" name="basketValue" #abasketValue></td>
+            </tr>
+            <tr [hidden]="doesCreateWork">
+                <td>{{createError}}</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Create"></td>
+            </tr>
+            <tr *ngFor="let b of basket">
+                <td>{{b.basketID}}</td>
+                <td>{{b.basketValue}}</td>
+            </tr>
+        </thead>
     </table>
-</form>
+    </form>
+</body>
+</html>
