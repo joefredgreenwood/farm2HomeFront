@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .fakeimg {
+          height: 200px;
+          background: #aaa;
+        }
+        </style>
 </head>
 
 
@@ -26,29 +32,29 @@
     customerPassword:acustomerPassword.value})"> 
 <table>
     <tr>
-        <th>Customer Forename</th>
+        <th>Forename</th>
         <td><input placeholder="First name" name="customerForename" #acustomerForename></td>
     </tr>
 
     <tr>
-        <th>Customer Surname</th>
+        <th>Surname</th>
         <td><input placeholder="Surname" name="customerSurname" #acustomerSurname></td>
     </tr>
     <tr>   
-        <th>Customer Address</th>
+        <th>Address</th>
         <td><input placeholder="Address" name="customerAddress" #acustomerAddress></td>
     </tr>
     <tr>
         <th>D.O.B</th>
-        <td><input placeholder="Date of Birth" name="customerDOB" #acustomerDOB></td>
+        <td><input placeholder="eg.21/12/96" name="customerDOB" #acustomerDOB></td>
     </tr>
     <tr>
-        <th>Customer Email</th>
-        <td><input placeholder="Email Address" name="customerEmail" #acustomerEmail></td>
+        <th>Email Address</th>
+        <td><input placeholder="eg.Joeblogs@email.com" name="customerEmail" #acustomerEmail></td>
     </tr>
     <tr>
         <th>Customer Username</th>
-        <td><input placeholder="Username" name="customerUsername" #acustomerUsername></td>
+        <td><input placeholder="eg.Karen123" name="customerUsername" #acustomerUsername></td>
     </tr>
         <th>Customer Password</th>
         <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
