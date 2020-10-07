@@ -42,4 +42,19 @@
                 </td>
             </tr>
         </table>
+        <table>
+            <tr>
+                <th>
+                    Basket Value
+                </th>
+            </tr>
+            <tr *ngFor = "let b of currentBasket">
+                <td>
+                    {{b.basketID}}
+                </td>
+                <td>
+                    {{b.basketValue}}
+                </td>
+            </tr>
+        </table>
     </div>
