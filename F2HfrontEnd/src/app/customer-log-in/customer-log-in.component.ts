@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../customer.service';
 import { Customer } from '../customer';
+import { Basket } from '../basket';
 
 @Component({
   selector: 'app-customer-log-in',
@@ -10,6 +11,7 @@ import { Customer } from '../customer';
 export class CustomerLogInComponent implements OnInit {
 
   customer:Customer
+  currentBasket:Basket[]
   serverIssue:string
   isApplicantValid: boolean
   isCustomerEditing: boolean
@@ -30,6 +32,10 @@ export class CustomerLogInComponent implements OnInit {
       customerUsername: "",
       customerPassword: ""
     }
+    this.currentBasket=[{
+      basketID: 0,
+      basketValue:0.0
+    }]
    }
 
 
@@ -59,6 +65,14 @@ export class CustomerLogInComponent implements OnInit {
        }
       
        
+     )
+   }
+
+   fetchBasket() {
+     this.customerService.findBasketByCustomerUsername(this.customer.customerUsername, this.customer.customerPassword).subscribe(
+       response=>{
+         this.currentBasket = response
+       }
      )
    }
 
