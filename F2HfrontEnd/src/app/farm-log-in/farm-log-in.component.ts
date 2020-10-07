@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Farm } from '../farm';
 import { FarmService } from '../farm.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-farm-log-in',
@@ -10,6 +11,7 @@ import { FarmService } from '../farm.service';
 export class FarmLogInComponent implements OnInit {
 
   farm: Farm
+  currentProduct:Product[]
   serverIssue: string
   isFarmValid: boolean
   isFarmEditing: boolean
@@ -28,6 +30,13 @@ export class FarmLogInComponent implements OnInit {
       farmUsername: "",
       farmPassword: ""
     }
+    this.currentProduct=[{
+      productID:0,
+      productName:"not working",
+      productPrice:0.0,
+      productquantity:0
+      
+    }]
    }
 
    fetchFarm() {
@@ -37,6 +46,7 @@ export class FarmLogInComponent implements OnInit {
          this.farm = Response
          this.serverIssue = ""
          this.hasFarmData = true
+         this.fetchProducts()
        },
        error => {
          this.hasFarmData = false
@@ -52,6 +62,15 @@ export class FarmLogInComponent implements OnInit {
           farmPassword: ""
          }
        }
+     )
+   }
+
+   fetchProducts(){
+     this.farmService.findProducts(this.farm.farmUsername, this.farm.farmPassword).subscribe(
+       response=>{
+         this.currentProduct = response
+       }
+
      )
    }
 

@@ -1,7 +1,7 @@
 <h1> Farm Login</h1>
 <form>
     <table>
-        <tr [hidden] = "isFarmValid">
+        <tr [hidden] ="isFarmValid">
             <td colspan="3">
                 {{serverIssue}}
             </td>
@@ -10,18 +10,18 @@
             <th>
                 Please enter your username and password to login to your account:
             </th>
-            <td *ngIf="!isfarmEditing">
+            <td *ngIf="!isFarmEditing">
                 {{farm.farmUsername}}
             </td>
-            <td *ngIf="isfarmEditing">
+            <td *ngIf="isFarmEditing">
                 <input name="farmUsername" [(ngModel)]="farm.farmUsername">
             </td>
-            <td *ngIf="isfarmEditing">
+            <td *ngIf="isFarmEditing">
                 <input name="farmPassword" [(ngModel)]="farm.farmPassword">
             </td>
             <td>
                 <button (click)="toggleIsFarmEditingForm()">
-                    {{((!isfarmEditing)?"Login":"Login")}}
+                    {{((!isFarmEditing)?"Login":"Login")}}
                 </button>
             </td>
         </tr>
@@ -36,6 +36,30 @@
             <tr>
                 <td>
                     {{farm.farmName}}
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Product Price
+                </th>
+                <th>
+                    Product Quantity
+                </th>
+            </tr>
+            <tr *ngFor="let p of currentProduct">
+                <td>
+                    {{p.productName}}
+                </td>
+                <td>
+                    {{p.productPrice}}
+                </td>
+                <td>
+                    {{p.productQuantity}}
                 </td>
             </tr>
         </table>

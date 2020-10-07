@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'basket', component:BasketComponent},
   {path:'customer-log-in', component:CustomerLogInComponent},
   {path:'farm', component:FarmComponent},
-  {path: 'farm-log-in', component:FarmLogInComponent},
+  {path:'farm-log-in', component:FarmLogInComponent},
   {path:'product', component:ProductComponent}
   // {path:'',redirectTo:'/home', pathMatch: 'full' }
 ];
