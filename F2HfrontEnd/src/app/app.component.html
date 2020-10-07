@@ -16,28 +16,32 @@
 </div>
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="home" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="smallMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="home" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="customer" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Customer</a>
     <a href="customer-log-in" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Customer log in</a> 
     <a href="farm" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Farmer</a>
-    <a href="farm-log-in" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Farm log in</a> 
     <a href="product" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Products</a>
+    <a href="farm-log-in" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Farm log in</a> 
     <a href="basket" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basket</a>
   </div>
 </div>
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="home" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Home</a>
-  <a href="customer" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Customer</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Products</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Basket</a>
+  <a href="home" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Home</a>
+  <a href="customer" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Customer</a>
+  <a href="customer-log-in" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Customer Login</a>
+  <a href="farm" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Farmer log in </a>
+  <a href="product" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Products</a>
+  <a href="farm-log-in" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Farmer login </a>
+  <a href="basket" class="w3-bar-item w3-button w3-padding-large" onclick="smallMenu()">Basket </a>
+
 </div>
 </body>
 
 <script>
   // Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
+function smallMenu() {
 var x = document.getElementById("navDemo");
 if (x.className.indexOf("w3-show") == -1) {
 x.className += " w3-show";

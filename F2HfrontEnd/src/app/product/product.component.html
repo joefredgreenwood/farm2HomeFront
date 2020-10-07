@@ -1,9 +1,12 @@
 <table>
+    <thead>
     <tr>
         <th>Product Type</th>
         <th>Product Price</th>
         <th>Product Quantity</th>
     </tr>
+</thead>
+<tbody>
     <tr *ngFor="let p of Product">
        <td>{{p.productName}}</td>
        <td>{{p.productPrice}}</td>
@@ -11,4 +14,22 @@
 
         <!-- <td><button (click)="deleteCustomer(c.customerID)">x</button></td> -->
     </tr>
-</table>
+</tbody>
+<tbody>
+      <tr>
+        <td>Chicken Leg</td>
+        <td>£4.99</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>£0.79</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Milk</td>
+        <td>£1.00</td>
+        <td>500ml</td>
+      </tr>
+    </tbody>
+  </table>
