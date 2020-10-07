@@ -35,7 +35,19 @@ export class FarmService {
                         {"Content-Type":"application/x-www-form-urlencoded"})
                         }
 
-    return this.httpsvc.post<Product>(this.rootURL+"product/register", contentData, httpOptions)
+    return this.httpsvc.post<Product>(this.rootURL+"/product/register", contentData, httpOptions)
+                      }
+   
+    findProducts(farmUsername:string, farmPassword:string):Observable<Product[]>{
+      return this.httpsvc.get<Product[]>(this.rootURL+"/product/findu/"+farmUsername+"/"+farmPassword)
+    }
+
+  //findApplicationFormByPassportNo(passportNo:number):Observable<Application[]>{
+//   return this.httpSvc.get<Application[]>(this.serviceURL+"/applicationform/"+passportNo)
+// }
+   
+     findFarmByUsername(farmUsername:string, farmPassword:string):Observable<Farm>{
+     return this.httpsvc.get<Farm>(this.rootURL+"/findu/"+farmUsername+"/"+farmPassword)
    }
 
    createFarm(newFarm:Farm):Observable<Farm>{

@@ -13,6 +13,7 @@ import { CustomerLogInComponent } from './customer-log-in/customer-log-in.compon
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ProductComponent } from './product/product.component';
 import { FarmProductComponent } from './farm-product/farm-product.component';
+import { FarmLogInComponent } from './farm-log-in/farm-log-in.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FarmProductComponent } from './farm-product/farm-product.component';
     CustomerLogInComponent,
     CustomerProfileComponent,
     ProductComponent,
-    FarmProductComponent
+    FarmProductComponent,
+    FarmLogInComponent
   ],
   imports: [
     BrowserModule,
