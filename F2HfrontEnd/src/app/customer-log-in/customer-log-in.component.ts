@@ -69,7 +69,7 @@ export class CustomerLogInComponent implements OnInit {
    }
 
    fetchBasket() {
-     this.customerService.findBasketByCustomerUsername(this.customer.customerUsername, this.customer.customerPassword).subscribe(
+     this.customerService.findBasketByUsernameAndPassword(this.customer.customerUsername, this.customer.customerPassword).subscribe(
        response=>{
          this.currentBasket = response
        }

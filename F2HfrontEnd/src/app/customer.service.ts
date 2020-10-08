@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
-import { Product } from './product';
 import { Basket } from './basket';
 // import { newArray } from '@angular/compiler/src/util';
 
@@ -31,7 +30,7 @@ export class CustomerService {
     return this.httpsvc.get<Customer>(this.rootURL+"/findu/"+customerUsername+"/"+customerPassword)
   }
 
-  findBasketByCustomerUsername(customerUsername:string, customerPassword:string):Observable<Basket[]>{
+  findBasketByUsernameAndPassword(customerUsername:string, customerPassword:string):Observable<Basket[]>{
     return this.httpsvc.get<Basket[]>(this.rootURL+"/customer/basket/findu/"+customerUsername+"/"+customerPassword)
     }
 
