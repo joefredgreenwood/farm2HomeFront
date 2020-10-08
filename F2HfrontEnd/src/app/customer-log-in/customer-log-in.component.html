@@ -33,17 +33,16 @@
         <table>
             <tr>
                 <td>
-                    Name
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{customer.customerForename}}
+                    Welcome {{customer.customerForename}}
                 </td>
             </tr>
         </table>
+        <hr>
+    <h2>View Your Basket</h2>
         <table>
             <tr>
+                <th>
+                    Basket ID
                 <th>
                     Basket Value
                 </th>
@@ -57,4 +56,30 @@
                 </td>
             </tr>
         </table>
+    <h2>Products Ordered</h2>
+    <p> Hey guys just adding this in as a placeholder. not sure if we are planning to add this to show what is in the basket?</p>
+        <table>
+            <tr>
+                <th>
+                    Product Name
+                <th>
+                    Price
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </tr>
+            <tr *ngFor = "let p of productsOrdered">
+                <td>
+                    {{p.productName}}
+                </td>
+                <td>
+                    {{p.productPrice}}
+                </td>
+                <td>
+                    {{p.productquantity}}
+                </td>
+            </tr>
+        </table>
+        <hr>
     </div>
