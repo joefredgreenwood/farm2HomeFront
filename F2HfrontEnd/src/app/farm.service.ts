@@ -23,20 +23,35 @@ export class FarmService {
      return this.httpsvc.get<Farm>(this.rootURL+"/find/"+farmID)
    }
 
-   addProduct(farmUsername:string, farmPassword:string, newProduct:Product):Observable<Product>{
-     var contentData= "farmUsername="+farmUsername+
-                      "&farmPasswrod="+farmPassword
-                      "&productName="+newProduct.productName+
-                      "&productPrice="+newProduct.productPrice+
-                      "&productQuantity"
+  //  addProduct(farmUsername:string, farmPassword:string, newProduct:Product):Observable<Product>{
+  //    var contentData = 
+  //                     "farmUsername="+farmUsername+
+  //                     "&farmPassword="+farmPassword+
+  //                     "&productName="+newProduct.productName+
+  //                     "&productPrice="+newProduct.productPrice+
+  //                     "&productQuantity"+newProduct.productQuantity
+  //   const httpOptions= {
+  //   headers: new HttpHeaders(
+  //   {"Content-Type":"application/x-www-form-urlencoded"})
+  //                       }
 
-                      const httpOptions= {
-                        headers: new HttpHeaders(
-                        {"Content-Type":"application/x-www-form-urlencoded"})
-                        }
+  //   return this.httpsvc.post<Product>(this.rootURL+"/product/register", contentData, httpOptions)
+  //                     }
 
-    return this.httpsvc.post<Product>(this.rootURL+"/product/register", contentData, httpOptions)
-                      }
+  addProduct(farmID:number, newProduct:Product):Observable<Product>{
+    var contentData = 
+                     "farmID="+farmID+
+                     "&productName="+newProduct.productName+
+                     "&productPrice="+newProduct.productPrice+
+                     "&productQuantity="+newProduct.productQuantity
+
+   const httpOptions= {
+   headers: new HttpHeaders(
+   {"Content-Type":"application/x-www-form-urlencoded"})
+                       }
+
+   return this.httpsvc.post<Product>(this.rootURL+"/product/register", contentData, httpOptions)
+                     }
    
     findProducts(farmUsername:string, farmPassword:string):Observable<Product[]>{
       return this.httpsvc.get<Product[]>(this.rootURL+"/product/findu/"+farmUsername+"/"+farmPassword)

@@ -16,12 +16,15 @@ export class FarmLogInComponent implements OnInit {
   isFarmValid: boolean
   isFarmEditing: boolean
   hasFarmData: boolean
+  isAccountEditing: boolean
+ 
 
   constructor(private farmService:FarmService) {
     this.isFarmValid = true
     this.isFarmEditing = false
     this.hasFarmData = false
     this.serverIssue=""
+    this.isAccountEditing=true
     this.farm={
       farmID: 0,
       farmName: "Test",
@@ -32,9 +35,9 @@ export class FarmLogInComponent implements OnInit {
     }
     this.currentProduct=[{
       productID:0,
-      productName:"not working",
+      productName:"No Upload",
       productPrice:0.0,
-      productquantity:0
+      productQuantity:0
       
     }]
    }
@@ -47,6 +50,7 @@ export class FarmLogInComponent implements OnInit {
          this.serverIssue = ""
          this.hasFarmData = true
          this.fetchProducts()
+         
        },
        error => {
          this.hasFarmData = false
@@ -74,9 +78,24 @@ export class FarmLogInComponent implements OnInit {
      )
    }
 
+   addProducts(newProduct:Product){
+     this.farmService.addProduct(this.farm.farmID, newProduct).subscribe(
+       response=>{
+         this.fetchProducts()
+          this.isAccountEditing=true
+          console.log()
+       }
+     )
+   }
+
    toggleIsFarmEditingForm() {
      this.isFarmEditing=!this.isFarmEditing
      this.fetchFarm()
+   }
+
+   toggleIsAccountEditing(){
+     this.isAccountEditing=!this.isAccountEditing
+     this.fetchProducts()
    }
 
   ngOnInit(): void{
