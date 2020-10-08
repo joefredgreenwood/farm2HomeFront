@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
+import { Basket } from './basket';
 // import { newArray } from '@angular/compiler/src/util';
 
 
@@ -25,9 +26,27 @@ export class CustomerService {
     return this.httpsvc.get<Customer>(this.rootURL+"/find/"+customerID)
   }
 
-findCustomerByUsername(customerUsername:string, customerPassword:string):Observable<Customer>{
-  return this.httpsvc.get<Customer>(this.rootURL+"/findu/"+customerUsername+"/"+customerPassword)
-}
+  findCustomerByUsername(customerUsername:string, customerPassword:string):Observable<Customer>{
+    return this.httpsvc.get<Customer>(this.rootURL+"/findu/"+customerUsername+"/"+customerPassword)
+  }
+
+  findBasketByUsernameAndPassword(customerUsername:string, customerPassword:string):Observable<Basket[]>{
+    return this.httpsvc.get<Basket[]>(this.rootURL+"/customer/basket/findu/"+customerUsername+"/"+customerPassword)
+    }
+
+  // addBasket(customerUsername:string, customerPassword:string, newBasket:Basket):Observable<Basket>{
+  //     var contentData = "customerUsername="+customerUsername+
+  //                       "&customerPassword="+customerPassword
+  //                       "&basketID="+newBasket.basketID+
+  //                       "&basketValue="+newBasket.basketValue
+
+  //                       const httpOptions={
+  //                         headers: new HttpHeaders(
+  //                           {"Content-Type":"application/x-www-form-urlencoded"})
+  //                       }
+
+  //   return this.httpsvc.post<Basket>(this.rootURL+"/basket/register", contentData, httpOptions)
+  // }
 
   createCustomer(newCustomer:Customer):Observable<Customer>{
   
@@ -49,7 +68,6 @@ findCustomerByUsername(customerUsername:string, customerPassword:string):Observa
                   httpOptions) //header options
                   
                   }
-    
   
 
 }
