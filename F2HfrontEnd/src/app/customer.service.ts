@@ -31,7 +31,7 @@ export class CustomerService {
   }
 
   findBasketByUsernameAndPassword(customerUsername:string, customerPassword:string):Observable<Basket[]>{
-    return this.httpsvc.get<Basket[]>(this.rootURL+"/customer/basket/findu/"+customerUsername+"/"+customerPassword)
+    return this.httpsvc.get<Basket[]>(this.rootURL+"/basket/findu/"+customerUsername+"/"+customerPassword)
     }
 
   // addBasket(customerUsername:string, customerPassword:string, newBasket:Basket):Observable<Basket>{
