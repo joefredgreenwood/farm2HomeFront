@@ -21,6 +21,9 @@
         <ng-container *ngIf="show">
         
             <table>
+                <tr [hidden]="doesCreateWork">
+                    <td>{{createError}}</td>
+                </tr>
                 <tr>
                     <th class="short">Farm Name</th>
                     <th class="short">Farm Location</th>
@@ -45,6 +48,7 @@
                             farmUsername:afarmUsername.value,
                             farmPassword:afarmPassword.value})">
                 <table>
+                    
                     <tr>
                         <td><input placeholder="Name" name="farmName" #afarmName></td>
                         <td>
@@ -57,6 +61,7 @@
                         <td><input placeholder="Type" name="farmType" #afarmType></td>
                         <td><input placeholder="Username" name="farmUsername" #afarmUsername></td>
                         <td><input placeholder="Password" name="farmPassword" #afarmPassword></td>
+                        
                         <td><input type="submit" value="Create"></td>
                     </tr>
                 </table>

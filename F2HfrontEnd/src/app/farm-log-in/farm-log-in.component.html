@@ -63,4 +63,58 @@
                 </td>
             </tr>
         </table>
+        <br>
+        <br>
+        <br>
+        <h2>Add new product</h2>
+        <button (click)="toggleIsAccountEditing()">{{((!isAccountEditing)?"Collapse":"Add new Product")}}</button>
+        <form (submit)="addProducts({
+            productID:0,
+            productName:aProductName.value,
+            productPrice:aProductPrice.value,
+            productQuantity:aProductQuantity.value
+        })" *ngIf="!isAccountEditing">
+        <table>
+            <tr>
+                <th>
+                    Product Name
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input name="productName" #aProductName>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Product Price
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input name="productPrice" #aProductPrice>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Product Quantity
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input name="productQuantity" #aProductQuantity>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add Product">
+                </td>
+            </tr>
+        </table>
+
+
+        </form>
+    
+    
+    
     </div>

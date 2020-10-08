@@ -11,12 +11,15 @@ export class FarmComponent implements OnInit {
 
   currentFarm: Farm
   serverMessage: string
+  doesCreateWork: boolean
+  createError: string
 
   public show: boolean=false;
   public farmSignUp:any = 'Show';
 
   constructor(private farmerService: FarmService) {
-
+    this.doesCreateWork = true
+    this.createError = ""
     this.currentFarm={
       farmID: 0,
       farmName: "string",
@@ -31,7 +34,13 @@ export class FarmComponent implements OnInit {
      this.farmerService.createFarm(newFarm).subscribe(
        response=>{
          this.fetchFarmFromServer()
-       }
+         this.createError=""
+         this.doesCreateWork=true
+       },
+       error=>{
+        this.doesCreateWork = false
+        this.createError = "This username already exists please choose another one"
+      }
      )
    }
 
