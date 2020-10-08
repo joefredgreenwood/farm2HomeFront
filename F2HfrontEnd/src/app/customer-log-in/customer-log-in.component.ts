@@ -11,7 +11,7 @@ import { Basket } from '../basket';
 export class CustomerLogInComponent implements OnInit {
 
   customer:Customer
-  currentBasket:Basket[]
+  currentBasket:Basket
   serverIssue:string
   isApplicantValid: boolean
   isCustomerEditing: boolean
@@ -32,10 +32,10 @@ export class CustomerLogInComponent implements OnInit {
       customerUsername: "",
       customerPassword: ""
     }
-    this.currentBasket=[{
+    this.currentBasket={
       basketID: 0,
       basketValue:0.0
-    }]
+    }
    }
 
 
@@ -46,6 +46,7 @@ export class CustomerLogInComponent implements OnInit {
          this.customer = Response
          this.serverIssue = ""
          this.hasCustomerData = true
+         this.fetchBasket()
        },
        error =>{
          this.hasCustomerData = false
