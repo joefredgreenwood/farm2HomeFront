@@ -1,22 +1,85 @@
-<!DOCTYPE html>
-
-<head>
-    <title>customer sign up page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-
-
+<br><br>
 <div class="headerCustomer">
     <h1>Welcome to our Sign up page </h1>
     <p><b>Easily sign up in seconds </b></p>
-    <p>&nbsp;&nbsp;&nbsp;Sign up as a customer to order our fresh products:</p>
+    <P> Please enter the details in below:</P>
   </div>
+  
+  <br><br>
 
-<form (submit)="createCustomer({customerID:0, 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <form (submit)="createCustomer({customerID:0, 
+        customerForename:acustomerForename.value, 
+        customerSurname:acustomerSurname.value,
+        customerAddress:acustomerAddress.value,
+        customerDOB:acustomerDOB.value,
+        customerEmail:acustomerEmail.value,
+        customerUsername:acustomerUsername.value,
+        customerPassword:acustomerPassword.value})"> 
+
+  <h2>&nbsp;Customer Sign-Up</h2>
+  <p>&nbsp;&nbsp;&nbsp;Sign up as a customer to order our fresh products:</p>
+          
+  <table style="width: 10px;" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Customer Forename</th>
+            <th>Customer Surname</th>
+            <th>Customer Address</th>
+            <th>D.O.B</th> 
+            <th>Customer Email</th>
+            <th>Customer Username</th>
+            <th>Customer Password</th>
+            
+        </tr>
+        <tr>
+            <td><input placeholder="Forename" name="customerForename" #acustomerForename></td>
+            <td><input placeholder="Surname" name="customerSurname" #acustomerSurname></td>
+            <td><input placeholder="Address" name="customerAddress" #acustomerAddress></td>
+            <td><input placeholder="D.O.B" name="customerDOB" #acustomerDOB></td>
+            <td><input placeholder="Email" name="customerEmail" #acustomerEmail></td>
+            <td><input placeholder="Username" name="customerUsername" #acustomerUsername></td>
+            <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
+        </tr>
+        <tr [hidden]="doesCreateWork">
+            <td>{{createError}}</td>
+        </tr>
+        <tr>
+        <td><input type="submit" value="Create"></td>
+        </tr>
+        <tr *ngFor="let c of customer">
+            <td>{{c.customerID}}</td>
+            <td>{{c.customerForename}}</td>
+            <td>{{c.customerSurname}}</td>
+            <td>{{c.customerAddress}}</td>
+            <td>{{c.customerDOB}}</td>
+            <td>{{c.customerEmail}}</td>
+            <td>{{c.customerUsername}}</td>
+            <td>{{c.customerPassword}}</td>
+        </tr>
+    </thead>
+    
+            <!-- <td><button (click)="deleteCustomer(c.customerID)">x</button></td> -->
+        <!-- </tr> -->
+    
+  </table>
+</form>
+
+
+<br><br><br><br><br><br>
+
+
+<!-- <form (submit)="createCustomer({customerID:0, 
     customerForename:acustomerForename.value, 
     customerSurname:acustomerSurname.value,
     customerAddress:acustomerAddress.value,
@@ -27,7 +90,7 @@
 <table>
     <tr>
         <th>Customer Forename</th>
-        <td><input placeholder="First name" name="customerForename" #acustomerForename></td>
+        <td><input placeholder="Forename" name="customerForename" #acustomerForename></td>
     </tr>
 
     <tr>
@@ -40,11 +103,11 @@
     </tr>
     <tr>
         <th>D.O.B</th>
-        <td><input placeholder="Date of Birth" name="customerDOB" #acustomerDOB></td>
+        <td><input placeholder="D.O.B" name="customerDOB" #acustomerDOB></td>
     </tr>
     <tr>
         <th>Customer Email</th>
-        <td><input placeholder="Email Address" name="customerEmail" #acustomerEmail></td>
+        <td><input placeholder="Email" name="customerEmail" #acustomerEmail></td>
     </tr>
     <tr>
         <th>Customer Username</th>
@@ -69,7 +132,6 @@
         <td>{{c.customerUsername}}</td>
         <td>{{c.customerPassword}}</td>
         <!-- <td><button (click)="deleteCustomer(c.customerID)">x</button></td> -->
-    </tr>
+    <!-- </tr>
 </table>
-</form>
-
+</form> -->
