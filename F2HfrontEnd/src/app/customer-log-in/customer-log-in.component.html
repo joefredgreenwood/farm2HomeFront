@@ -56,7 +56,25 @@
                 </td>
             </tr>
         </table>
-    <h2>Products Ordered</h2>
+        <table>
+            <tr>
+                <th>
+                    Product Quantity
+                </th>
+                <th>
+                    Product Name
+                </th>
+            </tr>
+            <tr *ngFor="let a of aProd">
+                <td>
+                    {{a.productQuantity}}
+                </td>
+                <td>
+                    {{currentProduct.productName}}
+                </td>
+            </tr>
+        </table>
+    <!-- <h2>Products Ordered</h2>
     <p> Hey guys just adding this in as a placeholder. not sure if we are planning to add this to show what is in the basket?</p>
         <table>
             <tr>
@@ -77,9 +95,9 @@
                     {{p.productPrice}}
                 </td>
                 <td>
-                    {{p.productquantity}}
+                    {{p.productQuantity}}
                 </td>
             </tr>
-        </table>
+        </table> -->
         <hr>
     </div>
