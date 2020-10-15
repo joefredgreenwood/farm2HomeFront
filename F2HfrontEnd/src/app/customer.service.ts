@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
 import { Basket } from './basket';
+import { AssignedProduct } from './assigned-product';
+import { Product } from './product';
 // import { newArray } from '@angular/compiler/src/util';
 
 
@@ -33,6 +35,26 @@ export class CustomerService {
   findBasketByUsernameAndPassword(customerUsername:string, customerPassword:string):Observable<Basket>{
     return this.httpsvc.get<Basket>(this.rootURL+"/basket/findu/"+customerUsername+"/"+customerPassword)
     }
+
+  findAssignedProd(basketID:number):Observable<AssignedProduct[]>{
+    var contentData = 
+            "basketID="+basketID    
+   const httpOptions= {
+   headers: new HttpHeaders(
+   {"Content-Type":"application/x-www-form-urlencoded"})
+                                  }
+    return this.httpsvc.post<AssignedProduct[]>(this.rootURL+"/product/show", contentData, httpOptions)
+  }
+
+  findProd(assignedProductID:number):Observable<Product>{
+    var contentData = 
+            "assignedProductID="+assignedProductID
+            const httpOptions= {
+              headers: new HttpHeaders(
+              {"Content-Type":"application/x-www-form-urlencoded"})
+                                          }
+    return this.httpsvc.post<Product>(this.rootURL+"/product/ashow", contentData, httpOptions)    
+  }
 
   // addBasket(customerUsername:string, customerPassword:string, newBasket:Basket):Observable<Basket>{
   //     var contentData = "customerUsername="+customerUsername+

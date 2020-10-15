@@ -1,21 +1,59 @@
+<h1>LOGIN PAGE</h1>
+<form>
+    <table>
+        <tr [hidden]="isApplicantValid">
+            <td colspan="3">
+                {{serverIssue}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Retrieve your personal details:
+            </th>
+            <td *ngIf="!isCustomerEditing">
+                {{customer.customerUsername}}
+            </td>
+            <td *ngIf="isCustomerEditing">
+                <input name="customerUsername" [(ngModel)]="customer.customerUsername">
+            </td>
+            <!-- <td *ngIf="!isCustomerEditing">
+                {{customer.customerPassword}}
+            </td> -->
+            <td *ngIf="isCustomerEditing">
+                <input name="customerPassword" [(ngModel)]="customer.customerPassword">
+            </td>
+            <td>
+                <button (click)="toggleIsCustomerEditingForm()">
+                    {{((!isCustomerEditing)?"Login":"Login")}}
+                </button>
+            </td>
+        </tr>
+    </table>
+<div *ngIf="hasCustomerData">
 <table>
-    <thead>
     <tr>
         <th>Product Type</th>
         <th>Product Price</th>
         <th>Product Quantity</th>
     </tr>
-</thead>
+
 <tbody>
-    <tr *ngFor="let p of Product">
+  <!-- <form (submit)="buyThings({
+    productID:p.productID,
+    assignedProductID:0,
+    productQuantity:aQuantity.value
+  })"> -->
+    <tr *ngFor="let p of prod">
        <td>{{p.productName}}</td>
        <td>{{p.productPrice}}</td>
        <td>{{p.productQuantity}}</td>
-
-        <!-- <td><button (click)="deleteCustomer(c.customerID)">x</button></td> -->
-    </tr>
-</tbody>
-<tbody>
+       <td><input type="text" #aQuantity></td>
+       <!-- <td><input type="submit">Buy</td> -->
+        
+     </tr>
+  <!-- </form> -->
+</tbody> 
+<!-- <tbody>
       <tr>
         <td>Chicken Leg</td>
         <td>£4.99</td>
@@ -31,15 +69,6 @@
         <td>£1.00</td>
         <td>500ml</td>
       </tr>
-    </tbody>
+    </tbody> -->
   </table>
-
-
-  <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-</footer>
+</div>
