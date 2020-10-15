@@ -43,12 +43,15 @@
     assignedProductID:0,
     productQuantity:aQuantity.value
   })"> -->
-    <tr *ngFor="let p of prod">
+    <tr *ngFor="let p of prod; let i = index; let a of aprod">
        <td>{{p.productName}}</td>
        <td>{{p.productPrice}}</td>
-       <td>{{p.productQuantity}}</td>
-       <td><input type="text" #aQuantity></td>
-       <!-- <td><input type="submit">Buy</td> -->
+       <td>{{p.remainQuantity}}</td>
+       <td>{{p.productID}}</td>
+       <td><input type="text" name="productQuantity-{{i}}" placeholder="Please enter desired quantity" [(ngModel)]="a.productQuantity" #aProductQuantity></td>
+       
+
+       <td><button (click)="buyThings(a.productQuantity, p.productID);">Buy This</button></td>
         
      </tr>
   <!-- </form> -->

@@ -19,23 +19,27 @@ export class ProductComponent implements OnInit {
   isApplicantValid: boolean
   isCustomerEditing: boolean
   hasCustomerData: boolean
+  customerID: number
 
   constructor(private prodServices:ProductService) {
     this.isApplicantValid = true
     this.isCustomerEditing = false
     this.hasCustomerData = false
     this.serverIssue=""
+    this.customerID=0
     this.prod=[{
       productID:0,
       productName:"",
       productPrice:0,
-      productQuantity:0
+      productQuantity:0,
+      remainQuantity:0
     }]
     this.product={
       productID:0,
       productName:"",
       productPrice:0,
-      productQuantity:0
+      productQuantity:0,
+      remainQuantity:0
     }
     this.customer={
       customerID:0,
@@ -49,7 +53,7 @@ export class ProductComponent implements OnInit {
     }
     this.aprod={
       assignedProductID:0,
-      productQuantity:0
+      productQuantity:0,
     }
    }
    fetchAllProducts(){
@@ -63,13 +67,17 @@ export class ProductComponent implements OnInit {
    }
 
 
-   buyThings(aProduct:AssignedProduct){
-     this.prodServices.buyProducts(aProduct, this.product.productID, this.customer.customerID).subscribe(
+   buyThings(productQuantity:number, productID:number){
+     this.prodServices.buyProducts(productQuantity, productID, this.customerID).subscribe(
        response=>{
          this.aprod = response
        }
      )
    }
+
+  //  setProd(){
+  //   this.pro
+  // }
 
 
    fetchCustomer(){
@@ -79,6 +87,7 @@ export class ProductComponent implements OnInit {
         this.customer = Response
         this.serverIssue = ""
         this.hasCustomerData = true
+        this.customerID = this.customer.customerID
         
       },
       error =>{

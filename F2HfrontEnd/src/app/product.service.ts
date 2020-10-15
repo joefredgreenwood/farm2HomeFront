@@ -24,11 +24,11 @@ export class ProductService {
     return this.httpsvc.get<Customer>("http://localhost:7777/farmtoshop/customer/findu/"+customerUsername+"/"+customerPassword)
   }
 
-  buyProducts(assignedProduct:AssignedProduct, productID:number, customerID:number):Observable<AssignedProduct>{
+  buyProducts(aProdQuantity:number, productID:number, customerID:number):Observable<AssignedProduct>{
     var contentData = 
-              "customerID"+customerID+
-              "&productID"+productID+
-              "&productQuantity"+assignedProduct.productQuantity
+              "customerID="+customerID+
+              "&productID="+productID+
+              "&productQuantity="+aProdQuantity
     const httpOptions= {
     headers: new HttpHeaders(
     {"Content-Type":"application/x-www-form-urlencoded"})

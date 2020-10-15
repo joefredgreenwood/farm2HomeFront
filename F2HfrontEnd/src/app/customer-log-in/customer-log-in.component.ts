@@ -49,12 +49,6 @@ export class CustomerLogInComponent implements OnInit {
       assignedProductID:0,
       productQuantity:0
     }
-    this.currentProduct={
-      productID:0,
-      productName:"",
-      productPrice:0,
-      productQuantity:0      
-    }
    }
 
 
