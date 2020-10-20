@@ -35,9 +35,12 @@ export class CustomerComponent implements OnInit {
   createCustomer(newCustomer:Customer){
     this.customerService.createCustomer(newCustomer).subscribe(
       response=>{
+        this.currentCustomer = response
          this.fetchCustomerFromServer()
-          this.createError=""
-          this.doesCreateWork = true
+          this.createError="Thank you for making an account, please head to customer logIn to see your basket"
+          this.doesCreateWork = false
+          sessionStorage.setItem("customerUsername", this.currentCustomer.customerUsername)
+          sessionStorage.setItem("customerPassword",this.currentCustomer.customerPassword)
               },
       error=>{
         this.doesCreateWork = false

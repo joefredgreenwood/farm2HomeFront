@@ -14,8 +14,8 @@
 </div>
 <br>
     <h2>&nbsp;Customer Login</h2>
-  <p>&nbsp;&nbsp;&nbsp;Log in to your customer account to view your basket:</p>
-
+  <i>&nbsp;&nbsp;&nbsp;Log in to your customer account to view your basket:</i>
+  <br><br>
     <table style="width: 800px;" class="table table-bordered">
         <thead>
         <tr [hidden]="isApplicantValid">
@@ -70,7 +70,7 @@
                     {{currentBasket.basketID}}
                 </td>
                 <td>
-                    {{currentBasket.basketValue}}
+                    £{{currentBasket.basketValue}}
                 </td>
             </tr>
         </thead>

@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   customerID: number
   buyIssue: string
   isThereIssue: boolean
+  
 
   constructor(private prodServices:ProductService) {
     this.isThereIssue = true
@@ -75,11 +76,14 @@ export class ProductComponent implements OnInit {
      this.prodServices.buyProducts(productQuantity, productID, this.customerID).subscribe(
        response=>{
          this.aprod = response
-         this.isThereIssue=true
+         this.isThereIssue=false
+         this.buyIssue="Item has been succesfully added to basket"
+         this.fetchAllProducts()
        },
        error=>{
          this.isThereIssue=false
          this.buyIssue="Please enter a quantity less than or equal to the remaining quantity"
+         this.fetchAllProducts()
        }
      )
    }
@@ -128,6 +132,12 @@ export class ProductComponent implements OnInit {
 
 
   ngOnInit() {
+    var username = sessionStorage.getItem("customerUsername")
+    var password = sessionStorage.getItem("customerPassword")
+    if(username!=="" || password!=="")
+    this.customer.customerUsername=username
+    this.customer.customerPassword=password
+    this.fetchCustomer()
     this.fetchAllProducts()
   }
 
