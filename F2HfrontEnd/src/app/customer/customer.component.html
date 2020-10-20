@@ -5,6 +5,10 @@
     <P> Please enter the details in below:</P>
 </div>
 
+
+
+<h5 [hidden]="doesCreateWork">{{createError}}</h5>
+
 <form (submit)="createCustomer({customerID:0, 
     customerForename:acustomerForename.value, 
     customerSurname:acustomerSurname.value,
@@ -39,12 +43,10 @@
         <th>Customer Username</th>
         <td><input placeholder="Username" name="customerUsername" #acustomerUsername></td>
     </tr>
+    <tr>
         <th>Customer Password</th>
         <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
-    
-    <tr [hidden]="doesCreateWork">
-        <td>{{createError}}</td>
-    </tr>
+    </tr>   
     <tr>
         <td><input type="submit" value="Create"></td>
     </tr>
