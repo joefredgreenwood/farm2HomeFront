@@ -1,3 +1,9 @@
 th {
     padding: 5px;
 }
+  /* Header/logo Title */
+  .headerCustomer {
+    text-align: center;
+    color: black;
+  }
+  

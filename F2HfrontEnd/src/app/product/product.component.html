@@ -1,6 +1,24 @@
-<h1>LOGIN PAGE</h1>
-<form>
-    <table>
+<br>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="headerProduct">
+    <h1>Welcome to our Product Availablity page </h1>
+    <p><b>Easily check products in seconds </b></p>
+    <P> Please enter the details in below:</P>
+</div>
+<br>
+    <h2>&nbsp;Product Availablity</h2>
+  <p>&nbsp;&nbsp;&nbsp;Log in to your account to view available products:</p>
+
+
+    <table style="width: 800px;" class="table table-bordered">
+      <thead>
         <tr [hidden]="isApplicantValid">
             <td colspan="3">
                 {{serverIssue}}
@@ -10,9 +28,6 @@
             <th>
                 Retrieve your personal details:
             </th>
-            <td *ngIf="!isCustomerEditing">
-                {{customer.customerUsername}}
-            </td>
             <td *ngIf="isCustomerEditing">
                 <input name="customerUsername" [(ngModel)]="customer.customerUsername">
             </td>
@@ -28,9 +43,11 @@
                 </button>
             </td>
         </tr>
+      </thead>
     </table>
 <div *ngIf="hasCustomerData">
-<table>
+<table style="width: 800px;" class="table table-bordered">
+<thead>
   <tr [hidden]="isThereIssue">
     <td>{{buyIssue}}</td>
   </tr>
@@ -40,7 +57,7 @@
         <th>Product Quantity</th>
     </tr>
 
-<tbody>
+
   <!-- <form (submit)="buyThings({
     productID:p.productID,
     assignedProductID:0,
@@ -58,7 +75,7 @@
         
      </tr>
   <!-- </form> -->
-</tbody> 
+
 <!-- <tbody>
       <tr>
         <td>Chicken Leg</td>
@@ -76,5 +93,15 @@
         <td>500ml</td>
       </tr>
     </tbody> -->
+  </thead>
   </table>
 </div>
+<br><br>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+</footer>
