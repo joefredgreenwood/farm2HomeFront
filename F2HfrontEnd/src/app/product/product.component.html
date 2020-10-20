@@ -30,10 +30,8 @@
         </tr>
     </table>
 <div *ngIf="hasCustomerData">
+  <h4 [hidden]="isThereIssue">{{buyIssue}}</h4>
 <table>
-  <tr [hidden]="isThereIssue">
-    <td>{{buyIssue}}</td>
-  </tr>
     <tr>
         <th>Product Type</th>
         <th>Product Price</th>
@@ -49,7 +47,7 @@
  
     <tr *ngFor="let p of prod; let i = index; let a of aprod">
        <td>{{p.productName}}</td>
-       <td>{{p.productPrice}}</td>
+       <td>£{{p.productPrice}}</td>
        <td>{{p.remainQuantity}}</td>
        <td><input type="text" name="productQuantity-{{i}}" placeholder="Please enter desired quantity" [(ngModel)]="a.productQuantity" #aProductQuantity></td>
        

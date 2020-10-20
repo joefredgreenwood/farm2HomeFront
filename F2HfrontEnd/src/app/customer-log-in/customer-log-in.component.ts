@@ -60,6 +60,8 @@ export class CustomerLogInComponent implements OnInit {
          this.serverIssue = ""
          this.hasCustomerData = true
          this.fetchBasket()
+         sessionStorage.setItem("customerUsername",this.customer.customerUsername)
+         sessionStorage.setItem("customerPassword",this.customer.customerPassword)
        },
        error =>{
          this.hasCustomerData = false
@@ -120,7 +122,12 @@ export class CustomerLogInComponent implements OnInit {
 
 
   ngOnInit(): void{
-    this.fetchCustomer
+    var username = sessionStorage.getItem("customerUsername")
+    var password = sessionStorage.getItem("customerPassword")
+    if(username!=="" || password!=="")
+    this.customer.customerUsername=username
+    this.customer.customerPassword=password
+    this.fetchCustomer()
   }
 
 }

@@ -35,6 +35,7 @@ export class CustomerComponent implements OnInit {
   createCustomer(newCustomer:Customer){
     this.customerService.createCustomer(newCustomer).subscribe(
       response=>{
+        this.currentCustomer = response
          this.fetchCustomerFromServer()
           this.createError=""
           this.doesCreateWork = true

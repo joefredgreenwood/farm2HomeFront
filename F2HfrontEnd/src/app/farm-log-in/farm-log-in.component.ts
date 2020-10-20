@@ -37,8 +37,8 @@ export class FarmLogInComponent implements OnInit {
       productID:0,
       productName:"No Upload",
       productPrice:0.0,
-      productQuantity:0
-      
+      productQuantity:0,
+      remainQuantity:0
     }]
    }
 
