@@ -20,8 +20,12 @@ export class ProductComponent implements OnInit {
   isCustomerEditing: boolean
   hasCustomerData: boolean
   customerID: number
+  buyIssue: string
+  isThereIssue: boolean
 
   constructor(private prodServices:ProductService) {
+    this.isThereIssue = true
+    this.buyIssue = ""
     this.isApplicantValid = true
     this.isCustomerEditing = false
     this.hasCustomerData = false
@@ -71,6 +75,11 @@ export class ProductComponent implements OnInit {
      this.prodServices.buyProducts(productQuantity, productID, this.customerID).subscribe(
        response=>{
          this.aprod = response
+         this.isThereIssue=true
+       },
+       error=>{
+         this.isThereIssue=false
+         this.buyIssue="Please enter a quantity less than or equal to the remaining quantity"
        }
      )
    }
