@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Farm } from '../farm';
 import { FarmService } from '../farm.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-farm',
@@ -17,7 +18,7 @@ export class FarmComponent implements OnInit {
   public show: boolean=false;
   public farmSignUp:any = 'Show';
 
-  constructor(private farmerService: FarmService) {
+  constructor(private farmerService: FarmService, private router:Router) {
     this.doesCreateWork = true
     this.createError = ""
     this.currentFarm={
@@ -33,9 +34,15 @@ export class FarmComponent implements OnInit {
    createFarm(newFarm:Farm){
      this.farmerService.createFarm(newFarm).subscribe(
        response=>{
+         this.currentFarm = response
+         this.doesCreateWork = false
+         this.createError = "You have succesfuly signed up"
          this.fetchFarmFromServer()
          this.createError=""
          this.doesCreateWork=true
+         sessionStorage.setItem("farmUsername", this.currentFarm.farmUsername)
+         sessionStorage.setItem("farmPassword", this.currentFarm.farmPassword)
+         this.router.navigate(["farm-log-in"])
        },
        error=>{
         this.doesCreateWork = false

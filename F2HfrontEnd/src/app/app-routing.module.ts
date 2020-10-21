@@ -12,7 +12,7 @@ import { FarmLogInComponent } from './farm-log-in/farm-log-in.component';
 
 const routes: Routes = [
 
-  {path:'home',component:HomeComponent},
+  {path:'home', component:HomeComponent},
   {path:'customer', component:CustomerComponent},
   {path:'basket', component:BasketComponent},
   {path:'customer-log-in', component:CustomerLogInComponent},

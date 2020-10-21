@@ -21,8 +21,10 @@ export class CustomerLogInComponent implements OnInit {
   isApplicantValid: boolean
   isCustomerEditing: boolean
   hasCustomerData: boolean
+  isLoggedIn: boolean
 
   constructor(private customerService:CustomerService) {
+    this.isLoggedIn = false
     this.isApplicantValid = true
     this.isCustomerEditing = false
     this.hasCustomerData = false
@@ -56,6 +58,7 @@ export class CustomerLogInComponent implements OnInit {
      this.customerService.findCustomerByUsername(this.customer.customerUsername, this.customer.customerPassword).subscribe(
        Response=>{
          this.isApplicantValid = true
+         this.isLoggedIn = true
          this.customer=Response
          this.serverIssue = ""
          this.hasCustomerData = true

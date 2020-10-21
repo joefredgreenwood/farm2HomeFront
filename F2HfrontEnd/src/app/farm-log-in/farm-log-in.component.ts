@@ -49,6 +49,8 @@ export class FarmLogInComponent implements OnInit {
          this.farm = Response
          this.serverIssue = ""
          this.hasFarmData = true
+         sessionStorage.setItem("farmUsername", this.farm.farmUsername)
+         sessionStorage.setItem("farmPassword", this.farm.farmPassword)
          this.fetchProducts()
          
        },
@@ -99,7 +101,12 @@ export class FarmLogInComponent implements OnInit {
    }
 
   ngOnInit(): void{
-    this.fetchFarm
+    var username = sessionStorage.getItem("farmUsername")
+    var password = sessionStorage.getItem("farmPassword")
+    if(username!=="" || password!=="")
+    this.farm.farmUsername = username
+    this.farm.farmPassword = password
+    this.fetchFarm()
   }
 
 }

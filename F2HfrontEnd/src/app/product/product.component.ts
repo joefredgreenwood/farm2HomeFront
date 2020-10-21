@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Customer } from '../customer';
 import { AssignedProduct } from '../assigned-product';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,10 +23,12 @@ export class ProductComponent implements OnInit {
   customerID: number
   buyIssue: string
   isThereIssue: boolean
+  isLoggedIn: boolean
   
 
-  constructor(private prodServices:ProductService) {
+  constructor(private prodServices:ProductService, private router:Router) {
     this.isThereIssue = true
+    this.isLoggedIn = false
     this.buyIssue = ""
     this.isApplicantValid = true
     this.isCustomerEditing = false
@@ -79,6 +82,7 @@ export class ProductComponent implements OnInit {
          this.isThereIssue=false
          this.buyIssue="Item has been succesfully added to basket"
          this.fetchAllProducts()
+         this.router.navigate(["customer-log-in"])
        },
        error=>{
          this.isThereIssue=false
@@ -97,11 +101,13 @@ export class ProductComponent implements OnInit {
     this.prodServices.findCustomerByUsername(this.customer.customerUsername, this.customer.customerPassword).subscribe(
       Response=>{
         this.isApplicantValid = true
+        this.isLoggedIn = true
         this.customer = Response
         this.serverIssue = ""
         this.hasCustomerData = true
         this.customerID = this.customer.customerID
-        
+        sessionStorage.setItem("customerUsername",this.customer.customerUsername)
+        sessionStorage.setItem("customerPassword",this.customer.customerPassword)
       },
       error =>{
         this.hasCustomerData = false
@@ -129,7 +135,7 @@ export class ProductComponent implements OnInit {
     this.fetchCustomer()
   }
 
-
+  
 
   ngOnInit() {
     var username = sessionStorage.getItem("customerUsername")

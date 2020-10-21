@@ -13,7 +13,9 @@
     <P> Please enter the details in below:</P>
 </div>
 <br>
+
     <h2>&nbsp;Product Availablity</h2>
+    <div [hidden]="isLoggedIn">  
   <i>&nbsp;&nbsp;&nbsp;Log in to your account to view available products:</i>
   <br><br>
 
@@ -45,6 +47,7 @@
         </tr>
       </thead>
     </table>
+  </div>
 <div *ngIf="hasCustomerData">
 <table style="width: 800px;" class="table table-bordered">
 <thead>

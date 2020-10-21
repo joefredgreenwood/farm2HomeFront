@@ -1,4 +1,5 @@
 <!-- <img src="https://st.depositphotos.com/1571889/1823/i/450/depositphotos_18235681-stock-photo-login-screen.jpg" alt="" class="centre"> -->
+<br>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,10 +14,12 @@
     <P> Please enter the details in below:</P>
 </div> -->
 <br>
+<div [hidden]="isLoggedIn">
     <h2>&nbsp;Customer Login</h2>
   <i>&nbsp;&nbsp;&nbsp;Log in to your customer account to view your basket:</i>
   <br><br>
-    <table style="width: 800px;" class="table table-bordered">
+</div>
+    <table style="width: 800px;" class="table table-bordered" [hidden]="isLoggedIn">
         <thead>
         <tr [hidden]="isApplicantValid">
             <td colspan="3">
