@@ -12,14 +12,14 @@ import { FarmLogInComponent } from './farm-log-in/farm-log-in.component';
 
 const routes: Routes = [
 
-  {path:'home',component:HomeComponent},
+  {path:'home', component:HomeComponent},
   {path:'customer', component:CustomerComponent},
   {path:'basket', component:BasketComponent},
   {path:'customer-log-in', component:CustomerLogInComponent},
   {path:'farm', component:FarmComponent},
   {path:'farm-log-in', component:FarmLogInComponent},
-  {path:'product', component:ProductComponent}
-  // {path:'',redirectTo:'/home', pathMatch: 'full' }
+  {path:'product', component:ProductComponent},
+   {path:'',redirectTo:'/home', pathMatch: 'full' }
 ];
 
 @NgModule({
