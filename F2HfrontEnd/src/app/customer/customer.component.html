@@ -8,6 +8,7 @@
 
 
 <h5 [hidden]="doesCreateWork">{{createError}}</h5>
+<h5 [hidden]="inputIssue">{{invalidInput}}</h5>
 
 <form (submit)="createCustomer({customerID:0, 
     customerForename:acustomerForename.value, 

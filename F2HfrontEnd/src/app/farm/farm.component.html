@@ -18,11 +18,10 @@
         </h3>
     
         <ng-container *ngIf="show">
+
+            <h6 [hidden]="doesCreateWork">{{createError}}</h6>
         
             <table>
-                <tr [hidden]="doesCreateWork">
-                    <td>{{createError}}</td>
-                </tr>
                 <tr>
                     <th class="short">Farm Name</th>
                     <th class="short">Farm Location</th>

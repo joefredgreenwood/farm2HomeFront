@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Customer } from '../customer';
 import { AssignedProduct } from '../assigned-product';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ProductComponent implements OnInit {
   isThereIssue: boolean
   
 
-  constructor(private prodServices:ProductService) {
+  constructor(private prodServices:ProductService, private router:Router) {
     this.isThereIssue = true
     this.buyIssue = ""
     this.isApplicantValid = true
@@ -79,6 +80,7 @@ export class ProductComponent implements OnInit {
          this.isThereIssue=false
          this.buyIssue="Item has been succesfully added to basket"
          this.fetchAllProducts()
+         this.router.navigate(["customer-log-in"])
        },
        error=>{
          this.isThereIssue=false
