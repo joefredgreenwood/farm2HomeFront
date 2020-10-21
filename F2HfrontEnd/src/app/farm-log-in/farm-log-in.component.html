@@ -1,6 +1,18 @@
-<h1> Farm Login</h1>
+<br>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 <form>
-    <table>
+    <h2>&nbsp;Farm Login</h2>
+    <i>&nbsp;&nbsp;&nbsp;Log into your farm account to add new products:</i>
+    <br><br>
+    <table style="width: 800px;" class="table table-bordered">
+        <thead>
         <tr [hidden] ="isFarmValid">
             <td colspan="3">
                 {{serverIssue}}
@@ -10,9 +22,9 @@
             <th>
                 Please enter your username and password to login to your account:
             </th>
-            <td *ngIf="!isFarmEditing">
+            <!-- <td *ngIf="!isFarmEditing">
                 {{farm.farmUsername}}
-            </td>
+            </td> -->
             <td *ngIf="isFarmEditing">
                 <input name="farmUsername" [(ngModel)]="farm.farmUsername">
             </td>
@@ -25,21 +37,38 @@
                 </button>
             </td>
         </tr>
+        </thead>
     </table>
     <div *ngIf="hasFarmData">
-        <table>
+        <table style="width: 800px;" class="table table-bordered">
+            <thead>
             <tr>
                 <td>
-                    Name
+                   Farm Name
+                </td>
+                
+                <td>
+                    Farm Location
+                </td>
+                <td>
+                    Farm Type
                 </td>
             </tr>
             <tr>
                 <td>
                     {{farm.farmName}}
                 </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
             </tr>
+            </thead>
         </table>
-        <table>
+        <table style="width:800px;" class="table table-bordered">
+            <thead>
             <tr>
                 <th>
                     Product Name
@@ -62,19 +91,21 @@
                     {{p.productQuantity}}
                 </td>
             </tr>
+            </thead>
         </table>
         <br>
+        <h3>&nbsp;Add New Products</h3>
+        &nbsp;<button (click)="toggleIsAccountEditing()">{{((!isAccountEditing)?"Collapse":"Add new Product")}}</button>
         <br>
-        <br>
-        <h2>Add new product</h2>
-        <button (click)="toggleIsAccountEditing()">{{((!isAccountEditing)?"Collapse":"Add new Product")}}</button>
         <form (submit)="addProducts({
             productID:0,
             productName:aProductName.value,
             productPrice:aProductPrice.value,
             productQuantity:aProductQuantity.value
         })" *ngIf="!isAccountEditing">
-        <table>
+        <br>
+        <table style="width: 800px;" class="table table-bordered">
+            <thead>
             <tr>
                 <th>
                     Product Name
@@ -110,9 +141,13 @@
                     <input type="submit" value="Add Product">
                 </td>
             </tr>
+        </thead>
         </table>
         </form>
     </div>
+    </form>
+    </body>
+    <br><br>
     <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
         <i class="fa fa-facebook-official w3-hover-opacity"></i>
         <i class="fa fa-instagram w3-hover-opacity"></i>

@@ -1,9 +1,24 @@
-<!DOCTYPE html>
-<div class="headerCustomer">
+<img src="https://www.mayberryinv.com/wp-content/uploads/2016/08/signup.jpg" alt="" class="centre">
+<br>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="headerCustomer">
     <h1>Welcome to our Sign up page </h1>
     <p><b>Easily sign up in seconds </b></p>
     <P> Please enter the details in below:</P>
 </div>
+
+<br>
+    <h2>&nbsp;Customer Sign-Up</h2>
+  <i>&nbsp;&nbsp;&nbsp;Sign up as a customer to order our fresh products:</i>
+  <br><br>
+
 
 
 
@@ -17,8 +32,10 @@
     customerDOB:acustomerDOB.value,
     customerEmail:acustomerEmail.value,
     customerUsername:acustomerUsername.value,
-    customerPassword:acustomerPassword.value})"> 
-<table>
+    customerPassword:acustomerPassword.value})">
+    
+<table style="width: 800px;" class="table table-bordered">
+    <thead>
     <tr>
         <th>Customer Forename</th>
         <td><input placeholder="Forename" name="customerForename" #acustomerForename></td>
@@ -28,18 +45,22 @@
         <th>Customer Surname</th>
         <td><input placeholder="Surname" name="customerSurname" #acustomerSurname></td>
     </tr>
+
     <tr>   
         <th>Customer Address</th>
         <td><input placeholder="Address" name="customerAddress" #acustomerAddress></td>
     </tr>
+
     <tr>
         <th>D.O.B</th>
         <td><input placeholder="D.O.B" name="customerDOB" #acustomerDOB></td>
     </tr>
+
     <tr>
         <th>Customer Email</th>
         <td><input placeholder="Email" name="customerEmail" #acustomerEmail></td>
     </tr>
+
     <tr>
         <th>Customer Username</th>
         <td><input placeholder="Username" name="customerUsername" #acustomerUsername></td>
@@ -47,7 +68,10 @@
     <tr>
         <th>Customer Password</th>
         <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
-    </tr>   
+    </tr>
+    <tr [hidden]="doesCreateWork">
+        <td>{{createError}}</td>
+    </tr>
     <tr>
         <td><input type="submit" value="Create"></td>
     </tr>
@@ -62,8 +86,10 @@
         <td>{{c.customerPassword}}</td>
         <!--<td><button (click)="deleteCustomer(c.customerID)">x</button></td> -->
      </tr>
+    </thead>
 </table>
-</form> 
+</form>
+</body>
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>

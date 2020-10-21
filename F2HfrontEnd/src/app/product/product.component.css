@@ -6,3 +6,9 @@ table, th, td {
     padding: 5px;
     text-align: left;
   }
+   /* Header/logo Title */
+   .headerProduct {
+    text-align: center;
+    color: black;
+  }
+  
