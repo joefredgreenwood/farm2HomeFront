@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'farm', component:FarmComponent},
   {path:'farm-log-in', component:FarmLogInComponent},
   {path:'product', component:ProductComponent},
-   {path:'',redirectTo:'/home', pathMatch: 'full' }
+  {path:'',redirectTo:'/home', pathMatch: 'full' }
 ];
 
 @NgModule({
