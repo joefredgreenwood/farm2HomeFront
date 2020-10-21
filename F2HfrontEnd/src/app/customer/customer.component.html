@@ -53,12 +53,12 @@
 
     <tr>
         <th>D.O.B</th>
-        <td><input placeholder="D.O.B" name="customerDOB" #acustomerDOB></td>
+        <td><input placeholder="D.O.B" name="customerDOB" type="date" #acustomerDOB></td>
     </tr>
 
     <tr>
         <th>Customer Email</th>
-        <td><input placeholder="Email" name="customerEmail" #acustomerEmail></td>
+        <td><input placeholder="Email" name="customerEmail" type="email" #acustomerEmail></td>
     </tr>
 
     <tr>
@@ -67,7 +67,7 @@
     </tr>
     <tr>
         <th>Customer Password</th>
-        <td><input placeholder="Password" name="customerPassword" #acustomerPassword></td>
+        <td><input placeholder="Password" name="customerPassword" type="password" #acustomerPassword></td>
     </tr>
     <tr [hidden]="doesCreateWork">
         <td>{{createError}}</td>
